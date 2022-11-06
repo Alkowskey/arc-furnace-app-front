@@ -1,7 +1,8 @@
-<ng-container *ngIf="{ data: arcData$ | async, labels: arcDataLabels$ | async } as arcData">
-  <div *ngIf="arcData.data && arcData.labels; else loading">
+<ng-container *ngIf="{ data: arcData$ | async, labels: arcDataLabels$ | async, error: error$ | async } as arcData">
+  <div *ngIf="arcData.data && arcData.labels && !arcData.error; else loading">
     <app-arc-data-line-chart [data]="arcData.data" [labels]="arcData.labels" title="Series A"></app-arc-data-line-chart>
   </div>
+  <div *ngIf="arcData.error as error">Error: {{ error }}</div>
   <ng-template #loading>
     <p>Loading...</p>
   </ng-template>

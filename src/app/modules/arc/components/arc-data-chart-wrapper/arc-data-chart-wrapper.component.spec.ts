@@ -8,7 +8,7 @@ describe('ArcDataChartWrapperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ArcDataChartWrapperComponent],
+      declarations: [ArcDataChartWrapperComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ArcDataChartWrapperComponent);
