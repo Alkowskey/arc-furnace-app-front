@@ -8,9 +8,8 @@ describe('ArcDataComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArcDataComponent ]
-    })
-    .compileComponents();
+      declarations: [ArcDataComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ArcDataComponent);
     component = fixture.componentInstance;

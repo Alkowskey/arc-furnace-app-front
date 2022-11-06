@@ -1,0 +1,90 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "plugins": ["import"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        "@angular-eslint/no-output-on-prefix": "warn",
+        "@angular-eslint/no-input-rename": "warn",
+        "@angular-eslint/no-output-native": "warn",
+        "@angular-eslint/contextual-lifecycle": "warn",
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "parent", "sibling", "index"],
+            "newlines-between": "always",
+            "pathGroups": [
+              {
+                "pattern": "app/**",
+                "group": "external",
+                "position": "after"
+              },
+              {
+                "pattern": "test/**",
+                "group": "external",
+                "position": "after"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["app", "test"]
+          }
+        ],
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "prettier/prettier": [
+          "error",
+          {
+            "trailingComma": "none",
+            "arrowParens": "always",
+            "singleQuote": true,
+            "endOfLine": "auto",
+            "printWidth": 120,
+            "useTabs": false,
+            "tabWidth": 2,
+            "semi": true,
+            "bracketSpacing": true,
+            "semicolon": [true, "always", "ignore-bound-class-methods"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    },
+    {
+      "files": ["*.html"],
+      "excludedFiles": ["*inline-template-*.component.html"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": ["warn", { "parser": "angular","endOfLine": "auto", "printWidth": 120 }]
+      }
+    }
+  ]
+}
