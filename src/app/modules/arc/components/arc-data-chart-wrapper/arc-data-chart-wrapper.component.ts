@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { Observable, map, shareReplay, ignoreElements, of, catchError } from 'rxjs';
+import { Observable, map, shareReplay, ignoreElements, of, catchError, tap, combineLatest } from 'rxjs';
 
 import { ArcDataSimplified } from '../../models/arc-data.inferface';
 import { ArcDataUtils } from '../../utils/arc-data.utils';
 import { ArcDataService } from '../../services/arc-data/arc-data.service';
+import { ArcStoreService } from '../../../shared/services/arc-store/arc-store.service';
 
 @Component({
   selector: 'app-arc-data-chart-wrapper',
@@ -15,29 +16,31 @@ export class ArcDataChartWrapperComponent {
   @Input() startDate: Date = new Date('2021-12-26');
   @Input() endDate: Date = new Date();
 
-  constructor(private arcData: ArcDataService) {}
-
-  fullData: Observable<ArcDataSimplified[]> = this.arcData.getData().pipe(
-    map((data: ArcDataSimplified[]) =>
+  constructor(private arcData: ArcDataService, private store: ArcStoreService) {}
+  arcData$: Observable<ArcDataSimplified[]> = combineLatest([this.store.dateRange$, this.arcData.getData()]).pipe(
+    map(([{ start, end }, data]) =>
       data.filter((item: ArcDataSimplified) =>
         ArcDataUtils.isDateBetween({
           date: item.date,
-          start: this.startDate,
-          end: this.endDate
+          start,
+          end
         })
       )
     ),
     shareReplay()
   );
-  arcDataLabels$: Observable<string[]> = this.fullData.pipe(
-    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.gatunek))
+
+  arcDataLabels$: Observable<string[]> = this.arcData$.pipe(
+    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.gatunek)),
+    tap(console.log)
   );
 
-  arcData$: Observable<number[]> = this.fullData.pipe(
-    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.oxygenPerTon))
+  arcDataNumbers$: Observable<number[]> = this.arcData$.pipe(
+    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.oxygenPerTon)),
+    tap(console.log)
   );
 
-  error$: Observable<any> = this.fullData.pipe(
+  error$: Observable<any> = this.arcData$.pipe(
     ignoreElements(),
     catchError((err) => of(err))
   );

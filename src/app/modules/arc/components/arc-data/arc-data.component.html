@@ -1,2 +1,4 @@
-<app-arc-data-chart-wrapper></app-arc-data-chart-wrapper>
-<p>asdasd</p>
+<app-datepicker-popup></app-datepicker-popup>
+<ng-container *ngIf="dateRange$ | async as range">
+  <app-arc-data-chart-wrapper [startDate]="range.start" [endDate]="range.end"></app-arc-data-chart-wrapper>
+</ng-container>

@@ -1,1 +1,10 @@
-<p>datepicker-popup works!</p>
+<mat-form-field class="example-form-field" appearance="fill">
+  <mat-label>Pick range</mat-label>
+  <mat-date-range-input [formGroup]="rangeFormGroup" [rangePicker]="rangePicker">
+    <input matStartDate placeholder="Start date" formControlName="start" />
+    <input matEndDate placeholder="End date" formControlName="end" />
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+  <mat-date-range-picker #rangePicker></mat-date-range-picker>
+</mat-form-field>
