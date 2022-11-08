@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Observable, map, shareReplay, ignoreElements, of, catchError, tap, combineLatest } from 'rxjs';
+import { Observable, map, shareReplay, ignoreElements, of, catchError, combineLatest } from 'rxjs';
 
 import { ArcDataSimplified } from '../../models/arc-data.inferface';
 import { ArcDataUtils } from '../../utils/arc-data.utils';
@@ -31,13 +31,11 @@ export class ArcDataChartWrapperComponent {
   );
 
   arcDataLabels$: Observable<string[]> = this.arcData$.pipe(
-    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.gatunek)),
-    tap(console.log)
+    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.gatunek))
   );
 
   arcDataNumbers$: Observable<number[]> = this.arcData$.pipe(
-    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.oxygenPerTon)),
-    tap(console.log)
+    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.oxygenPerTon))
   );
 
   error$: Observable<any> = this.arcData$.pipe(

@@ -1,0 +1,37 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Dashboard</span>
+    <span class="spacer"></span>
+    <button mat-icon-button>
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="container">
+    <mat-sidenav
+      #sidenav
+      opened
+      mode="side"
+      class="sidenav"
+      [fixedInViewport]="options.value.fixed"
+      [fixedTopGap]="options.value.top"
+      [fixedBottomGap]="options.value.bottom">
+      <!-- There will be some content in the nav - -->
+      <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+        placeholder
+      </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content [formGroup]="options">
+      <!-- There will be content injected from the parent -->
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</p>

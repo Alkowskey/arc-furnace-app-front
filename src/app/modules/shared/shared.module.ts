@@ -5,10 +5,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
 
 import { DatepickerPopupComponent } from './components/datepicker-popup/datepicker-popup.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { TableWrapperComponent } from './components/table-wrapper/table-wrapper.component';
 @NgModule({
-  declarations: [DatepickerPopupComponent],
+  declarations: [DatepickerPopupComponent, ToolbarComponent, TableWrapperComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,8 +24,13 @@ import { DatepickerPopupComponent } from './components/datepicker-popup/datepick
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatTableModule
   ],
-  exports: [DatepickerPopupComponent, ReactiveFormsModule]
+  exports: [DatepickerPopupComponent, ToolbarComponent, TableWrapperComponent, ReactiveFormsModule]
 })
 export class SharedModule {}

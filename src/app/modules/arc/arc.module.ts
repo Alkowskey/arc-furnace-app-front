@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
+import { MatTableModule } from '@angular/material/table';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -10,7 +11,7 @@ import { ArcDataChartWrapperComponent } from './components/arc-data-chart-wrappe
 
 @NgModule({
   declarations: [ArcDataComponent, ArcDataLineChartComponent, ArcDataChartWrapperComponent],
-  imports: [CommonModule, NgChartsModule, SharedModule],
+  imports: [CommonModule, NgChartsModule, SharedModule, MatTableModule],
   exports: [ArcDataComponent]
 })
 export class ArcModule {}

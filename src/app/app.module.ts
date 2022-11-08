@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArcModule } from './modules/arc/arc.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { ArcModule } from './modules/arc/arc.module';
     HttpClientModule,
     NgChartsModule.forRoot({ generateColors: false }),
     ArcModule,
+    SharedModule,
     NgChartsModule,
     BrowserAnimationsModule //TODO - to be lazy-loaded
   ],
