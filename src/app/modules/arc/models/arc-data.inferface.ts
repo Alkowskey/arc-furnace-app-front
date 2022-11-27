@@ -1,9 +1,12 @@
-export interface ArcDataSimplified {
+export type ArcDataSimplified = {
   id: string;
   gatunek: string;
   oxygenPerTon: number;
+  kwhPerTon: number;
+  powerOnTime: number;
+  Anthracite: number;
   date: Date; //Rename it
-}
+};
 
 export interface ArcDataDTO extends ArcDataStatusDTO, ArcElementDTO {
   _id: { $oid: string };
@@ -16,8 +19,8 @@ export interface ArcDataDTO extends ArcDataStatusDTO, ArcElementDTO {
   Anthracite: number;
   ['SHELMO - Non ferrous scrap mix']: number; //TODO - rename to something more meaningful
   Gatunek: string; //IDK why its twice here
-  powerOnTime: number;
-  kwhPerTon: number;
+  ['Power On Time [min]']: number;
+  ['Kwh Per Ton']: number;
   date: { $date: Date };
 }
 

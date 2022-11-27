@@ -41,6 +41,7 @@ export class ArcDataLineChartComponent implements OnChanges {
     if (changes['data'].currentValue && changes['labels'].currentValue) {
       this.lineChartData.datasets[0].data = [...changes['data'].currentValue];
       this.lineChartData.labels = [...changes['labels'].currentValue];
+      this.lineChartData.datasets[0].label = changes['title'].currentValue;
       this.chart?.chart?.update();
     }
   }

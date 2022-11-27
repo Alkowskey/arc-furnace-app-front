@@ -2,7 +2,6 @@
   <app-datepicker-popup></app-datepicker-popup>
   <content>
     <div>
-      <h2 class="font-main">Orders</h2>
       <ng-container *ngIf="dateRange$ | async as range">
         <app-arc-data-chart-wrapper [startDate]="range.start" [endDate]="range.end"></app-arc-data-chart-wrapper>
       </ng-container>

@@ -18,6 +18,13 @@ export class ArcDataService {
 
   private mapToSimplified(item: ArcDataDTO): ArcDataSimplified {
     //TODO - whole mapping will happen here, or some helper function outside of this class
-    return { ...item, date: new Date(item.date.$date), id: item._id.$oid, oxygenPerTon: item['Oxygen Per Ton'] };
+    return {
+      ...item,
+      date: new Date(item.date.$date),
+      id: item._id.$oid,
+      oxygenPerTon: item['Oxygen Per Ton'],
+      kwhPerTon: item['Kwh Per Ton'],
+      powerOnTime: item['Power On Time [min]']
+    };
   }
 }

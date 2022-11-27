@@ -22,11 +22,12 @@
       [fixedInViewport]="options.value.fixed"
       [fixedTopGap]="options.value.top"
       [fixedBottomGap]="options.value.bottom">
-      <!-- There will be some content in the nav - -->
+      <!-- There will be some content in the nav -->
       <button mat-icon-button>
         <mat-icon>favorite</mat-icon>
         placeholder
       </button>
+      <ng-content select=".sideNav"> </ng-content>
     </mat-sidenav>
 
     <mat-sidenav-content [formGroup]="options">
