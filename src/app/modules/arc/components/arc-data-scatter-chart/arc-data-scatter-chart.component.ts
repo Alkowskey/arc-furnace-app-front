@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { ChartType, ChartConfiguration, ChartData } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 import { ChartDataArc, Point } from '../../interfaces/chart-wrapper.interface';
 import { ArcDataUtils } from '../../utils/arc-data.utils';
@@ -10,9 +11,11 @@ import { ArcDataUtils } from '../../utils/arc-data.utils';
   styleUrls: ['./arc-data-scatter-chart.component.sass']
 })
 export class ArcDataScatterChartComponent {
+  @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
   @Input() set data(data: ChartDataArc) {
     const points = this.buildPointData(data);
     this.scatterChartData.datasets[0].data = ArcDataUtils.selectUniquePoints(points);
+    this.chart?.chart?.update();
   }
   // scatter
   scatterChartOptions: ChartConfiguration['options'] = {

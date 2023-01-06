@@ -10,8 +10,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [],
@@ -26,7 +26,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonModule,
     MatSidenavModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatDatepickerModule,
@@ -38,7 +40,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonModule,
     MatSidenavModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    MatSlideToggleModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {}

@@ -37,17 +37,10 @@ export class ArcDataChartWrapperComponent {
     shareReplay()
   );
 
-  arcDataLabels$: Observable<string[]> = this.arcData$.pipe(
-    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.gatunek))
-  );
-
-  arcDataLabelss$ = combineLatest([this.arcData$, this.arcCharts$]).pipe(
+  // TODO - rename
+  arcDataLabels$ = combineLatest([this.arcData$, this.arcCharts$]).pipe(
     map(([data, charts]) => this.getSelectedData(data, charts)),
     map((data) => this.pairSelectedData(data as { [key in ChartSelectionType]: (number | string)[] }))
-  );
-
-  arcDataNumbers$: Observable<number[]> = this.arcData$.pipe(
-    map((data: ArcDataSimplified[]) => data.map((item: ArcDataSimplified) => item.oxygenPerTon))
   );
 
   error$: Observable<any> = this.arcData$.pipe(

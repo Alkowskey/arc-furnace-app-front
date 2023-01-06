@@ -25,12 +25,14 @@ export class ArcDataChartSelectorComponent extends UnsubscribeDirective implemen
 
   private getSelections({
     dependents,
-    specifying
+    specifying,
+    options
   }: {
     dependents?: Partial<ChartSelection>;
     specifying?: Partial<ChartSelection>;
+    options?: Partial<ChartSelection>;
   }): ChartSelection {
-    return Object.entries({ ...dependents, ...specifying }).reduce(
+    return Object.entries({ ...dependents, ...specifying, ...options }).reduce(
       (acc, curr) => ({ ...acc, [curr[0]]: curr[1] }),
       {} as ChartSelection
     );

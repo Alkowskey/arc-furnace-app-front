@@ -1,0 +1,10 @@
+<div *ngIf="isScrapSelected | async" class="scrap-wrapper">
+  <div class="scrap-wrapper__title">Scrap</div>
+  <mat-tab-group>
+    <div *ngFor="let key of allKeys" class="tab">
+      <mat-tab [label]="key">
+        <app-arc-data-scatter-chart [data]="getScrapData(key)"></app-arc-data-scatter-chart>
+      </mat-tab>
+    </div>
+  </mat-tab-group>
+</div>

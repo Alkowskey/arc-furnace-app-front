@@ -1,10 +1,15 @@
-<ng-container *ngIf="{ data: arcDataLabelss$ | async, error: error$ | async } as arcData">
+<ng-container
+  *ngIf="{ data: arcDataLabels$ | async, error: error$ | async, chartOptions: arcCharts$ | async } as arcData">
   <div *ngIf="arcData.data && !arcData.error; else loading">
-    <div *ngFor="let item of arcData.data">
-      <h2>{{ item.xLabel }}</h2>
-      <!-- <app-arc-data-line-chart [data]="item.x" [labels]="item.y" [title]="item.xLabel || ''"></app-arc-data-line-chart> -->
-      <app-arc-data-scatter-chart [data]="item"></app-arc-data-scatter-chart>
+    <div *ngFor="let data of arcData.data">
+      <h2>{{ data.xLabel }}</h2>
+      <app-arc-data-scatter-chart [data]="data"></app-arc-data-scatter-chart>
     </div>
+    <app-arc-scrap-wrapper
+      *ngIf="arcData$ | async as data"
+      [data]="data"
+      [isAverege]="arcData.chartOptions?.averageScrap || false">
+    </app-arc-scrap-wrapper>
   </div>
   <ng-template #loading>
     <p>Loading...</p>

@@ -11,6 +11,7 @@ import { ArcDataLineChartComponent } from './components/arc-data-line-chart/arc-
 import { ArcDataChartWrapperComponent } from './components/arc-data-chart-wrapper/arc-data-chart-wrapper.component';
 import { ArcDataChartSelectorComponent } from './components/arc-data-chart-selector/arc-data-chart-selector.component';
 import { ArcDataScatterChartComponent } from './components/arc-data-scatter-chart/arc-data-scatter-chart.component';
+import { ArcScrapWrapperComponent } from './components/arc-scrap-wrapper/arc-scrap-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ArcDataScatterChartComponent } from './components/arc-data-scatter-char
     ArcDataLineChartComponent,
     ArcDataChartWrapperComponent,
     ArcDataChartSelectorComponent,
-    ArcDataScatterChartComponent
+    ArcDataScatterChartComponent,
+    ArcScrapWrapperComponent
   ],
   imports: [CommonModule, NgChartsModule, SharedModule, MatTableModule, MaterialModule],
   exports: [ArcDataComponent, ArcDataChartSelectorComponent]

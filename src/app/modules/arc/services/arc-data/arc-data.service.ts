@@ -24,7 +24,21 @@ export class ArcDataService {
       id: item._id.$oid,
       oxygenPerTon: item['Oxygen Per Ton'],
       kwhPerTon: item['Kwh Per Ton'],
-      powerOnTime: item['Power On Time [min]']
+      powerOnTime: item['Power On Time [min]'],
+      scrap: {
+        A: item.A,
+        B: item.B,
+        G: item.G,
+        H: item.H,
+        Ł: item.Ł,
+        M: item.M,
+        O: item.O,
+        P: item.P,
+        T: item.T,
+        U: item.U,
+        W: item.W,
+        Z: item.Z
+      }
     };
   }
 }

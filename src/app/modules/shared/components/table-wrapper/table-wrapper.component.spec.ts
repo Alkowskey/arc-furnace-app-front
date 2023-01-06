@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableWrapperComponent } from './table-wrapper.component';
@@ -8,9 +9,9 @@ describe('TableWrapperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableWrapperComponent ]
-    })
-    .compileComponents();
+      declarations: [TableWrapperComponent],
+      imports: [HttpClientModule]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TableWrapperComponent);
     component = fixture.componentInstance;

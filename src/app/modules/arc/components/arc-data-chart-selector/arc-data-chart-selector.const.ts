@@ -2,11 +2,12 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 import { ChartSelection } from '../../interfaces/chart-selection.interface';
 export const DEFAULT_SELECTIONS: ChartSelection = {
-  Anthracite: true,
-  two: false,
+  Anthracite: false,
+  scrap: true,
   kwhPerTon: false,
   oxygenPerTon: false,
-  powerOnTime: true
+  powerOnTime: false,
+  averageScrap: false
 } as const;
 
 export const CHART_SELECTOR_FORM = new FormGroup({
@@ -17,6 +18,9 @@ export const CHART_SELECTOR_FORM = new FormGroup({
   }),
   specifying: new FormGroup({
     Anthracite: new FormControl(DEFAULT_SELECTIONS.Anthracite, { nonNullable: true }),
-    two: new FormControl(DEFAULT_SELECTIONS.two, { nonNullable: true }) //TODO - rename it to something more meaningful
+    scrap: new FormControl(DEFAULT_SELECTIONS.scrap, { nonNullable: true })
+  }),
+  options: new FormGroup({
+    averageScrap: new FormControl(DEFAULT_SELECTIONS.averageScrap, { nonNullable: true })
   })
 });

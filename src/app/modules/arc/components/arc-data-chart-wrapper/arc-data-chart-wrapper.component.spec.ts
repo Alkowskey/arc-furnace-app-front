@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArcDataChartWrapperComponent } from './arc-data-chart-wrapper.component';
@@ -8,7 +9,8 @@ describe('ArcDataChartWrapperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ArcDataChartWrapperComponent]
+      declarations: [ArcDataChartWrapperComponent],
+      imports: [HttpClientModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ArcDataChartWrapperComponent);

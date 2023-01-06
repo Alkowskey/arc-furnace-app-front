@@ -6,6 +6,26 @@ export type ArcDataSimplified = {
   powerOnTime: number;
   Anthracite: number;
   date: Date; //Rename it
+  scrap: ArcDataScrap;
+};
+
+export enum ArcDataScrapEnum {
+  A = 'A',
+  B = 'B',
+  G = 'G',
+  H = 'H',
+  Ł = 'Ł',
+  M = 'M',
+  O = 'O',
+  P = 'P',
+  T = 'T',
+  U = 'U',
+  W = 'W',
+  Z = 'Z'
+}
+// create type as key of ArcDataScrapEnum and type is number
+export type ArcDataScrap = {
+  [key in ArcDataScrapEnum]: number;
 };
 
 export interface ArcDataDTO extends ArcDataStatusDTO, ArcElementDTO {
@@ -22,6 +42,18 @@ export interface ArcDataDTO extends ArcDataStatusDTO, ArcElementDTO {
   ['Power On Time [min]']: number;
   ['Kwh Per Ton']: number;
   date: { $date: Date };
+  A: number;
+  B: number;
+  G: number;
+  H: number;
+  Ł: number;
+  M: number;
+  O: number;
+  P: number;
+  T: number;
+  U: number;
+  W: number;
+  Z: number;
 }
 
 export interface ArcDataStatusDTO {

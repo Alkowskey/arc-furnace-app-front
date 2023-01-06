@@ -1,15 +1,8 @@
 <div class="content">
-  <app-datepicker-popup></app-datepicker-popup>
-  <content>
-    <div>
-      <ng-container *ngIf="dateRange$ | async as range">
-        <app-arc-data-chart-wrapper [startDate]="range.start" [endDate]="range.end"></app-arc-data-chart-wrapper>
-      </ng-container>
-    </div>
-    <div>
-      <h2 class="font-main">Products</h2>
-      <!-- Again - just some placeholder name-->
-      <app-table-wrapper></app-table-wrapper>
-    </div>
-  </content>
+  <div class="content__datepicker-wrapper">
+    <app-datepicker-popup class="content__datepicker"></app-datepicker-popup>
+  </div>
+  <ng-container *ngIf="dateRange$ | async as range">
+    <app-arc-data-chart-wrapper [startDate]="range.start" [endDate]="range.end"></app-arc-data-chart-wrapper>
+  </ng-container>
 </div>

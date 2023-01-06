@@ -3,7 +3,8 @@ export interface ChartSelection {
   kwhPerTon: boolean;
   powerOnTime: boolean;
   Anthracite: boolean;
-  two: boolean; //TODO - rename it to something more meaningful
+  scrap: boolean;
+  averageScrap: boolean;
 }
 
 export type ChartSelectionType = keyof ChartSelection;
