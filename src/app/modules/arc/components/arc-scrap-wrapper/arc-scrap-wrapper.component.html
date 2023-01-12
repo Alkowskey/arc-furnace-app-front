@@ -3,7 +3,19 @@
   <mat-tab-group>
     <div *ngFor="let key of allKeys" class="tab">
       <mat-tab [label]="key">
-        <app-arc-data-scatter-chart [data]="getScrapData(key)"></app-arc-data-scatter-chart>
+        <div>
+          <ng-container *ngIf="isScatter; else lineChart">
+            <app-arc-data-scatter-chart [data]="getScrapData(key)"></app-arc-data-scatter-chart>
+          </ng-container>
+          <ng-template #lineChart>
+            <ng-container *ngIf="getScrapData(key) as lineData">
+              <app-arc-data-line-chart
+                [data]="lineData.y"
+                [labels]="lineData.x"
+                title="line chart"></app-arc-data-line-chart>
+            </ng-container>
+          </ng-template>
+        </div>
       </mat-tab>
     </div>
   </mat-tab-group>

@@ -8,9 +8,9 @@ import { BaseChartDirective } from 'ng2-charts';
   styleUrls: ['./arc-data-line-chart.component.sass']
 })
 export class ArcDataLineChartComponent implements OnChanges {
-  @Input() labels: string[] = [];
+  @Input() labels: number[] = [];
   @Input() data: number[] = [];
-  @Input() title: string = 'Line Chart';
+  @Input() title = 'Title';
 
   @Input() borderColor = 'rgba(255,0,122,0.3)';
   @Input() backgroundColor = 'rgba(122,0,255,0.3)';
@@ -41,9 +41,12 @@ export class ArcDataLineChartComponent implements OnChanges {
     if (changes['data'].currentValue && changes['labels'].currentValue) {
       this.lineChartData.datasets[0].data = [...changes['data'].currentValue];
       this.lineChartData.labels = [...changes['labels'].currentValue];
-      this.lineChartData.datasets[0].label = changes['title'].currentValue;
-      this.chart?.chart?.update();
     }
+    if (changes['title']?.currentValue) {
+      this.lineChartData.datasets[0].label = changes['title'].currentValue;
+    }
+
+    this.chart?.chart?.update();
   }
 
   constructor() {}

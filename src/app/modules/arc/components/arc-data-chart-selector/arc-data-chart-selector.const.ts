@@ -7,7 +7,8 @@ export const DEFAULT_SELECTIONS: ChartSelection = {
   kwhPerTon: false,
   oxygenPerTon: false,
   powerOnTime: false,
-  averageScrap: false
+  averageScrap: false,
+  scatterScrap: true
 } as const;
 
 export const CHART_SELECTOR_FORM = new FormGroup({
@@ -21,6 +22,7 @@ export const CHART_SELECTOR_FORM = new FormGroup({
     scrap: new FormControl(DEFAULT_SELECTIONS.scrap, { nonNullable: true })
   }),
   options: new FormGroup({
-    averageScrap: new FormControl(DEFAULT_SELECTIONS.averageScrap, { nonNullable: true })
+    averageScrap: new FormControl(DEFAULT_SELECTIONS.averageScrap, { nonNullable: true }),
+    scatterScrap: new FormControl(DEFAULT_SELECTIONS.scatterScrap, { nonNullable: true })
   })
 });

@@ -5,6 +5,7 @@ export interface ChartSelection {
   Anthracite: boolean;
   scrap: boolean;
   averageScrap: boolean;
+  scatterScrap: boolean;
 }
 
 export type ChartSelectionType = keyof ChartSelection;

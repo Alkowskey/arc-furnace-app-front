@@ -8,7 +8,8 @@
     <app-arc-scrap-wrapper
       *ngIf="arcData$ | async as data"
       [data]="data"
-      [isAverege]="arcData.chartOptions?.averageScrap || false">
+      [isAverege]="!!arcData.chartOptions?.averageScrap"
+      [isScatter]="!!arcData.chartOptions?.scatterScrap">
     </app-arc-scrap-wrapper>
   </div>
   <ng-template #loading>

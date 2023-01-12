@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { takeUntil } from 'rxjs';
+import { takeUntil, tap } from 'rxjs';
 
 import { UnsubscribeDirective } from '../../../shared/directives/unsubscribe.directive';
 import { ChartSelectionStoreService } from '../../services/chart-selection-store/chart-selection-store.service';
@@ -18,7 +18,7 @@ export class ArcDataChartSelectorComponent extends UnsubscribeDirective implemen
     super();
   }
   ngOnInit(): void {
-    this.options.valueChanges.pipe(takeUntil(this.destroyed)).subscribe((selections) => {
+    this.options.valueChanges.pipe(takeUntil(this.destroyed), tap(console.log)).subscribe((selections) => {
       this.chartSelectionStore.updateSelections(this.getSelections(selections));
     });
   }
