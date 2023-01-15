@@ -10,7 +10,7 @@ describe('ArcDataLineChartComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ArcDataLineChartComponent],
-      imports: [NgChartsModule],
+      imports: [NgChartsModule]
     }).compileComponents();
   }));
 
@@ -22,5 +22,10 @@ describe('ArcDataLineChartComponent', () => {
 
   it('should compile', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have canvas element', () => {
+    const canvas = fixture.nativeElement.querySelector('canvas');
+    expect(canvas).toBeTruthy();
   });
 });

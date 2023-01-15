@@ -8,9 +8,8 @@ describe('ArcDataScatterChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArcDataScatterChartComponent ]
-    })
-    .compileComponents();
+      declarations: [ArcDataScatterChartComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ArcDataScatterChartComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,10 @@ describe('ArcDataScatterChartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have canvas element', () => {
+    const canvas = fixture.nativeElement.querySelector('canvas');
+    expect(canvas).toBeTruthy();
   });
 });

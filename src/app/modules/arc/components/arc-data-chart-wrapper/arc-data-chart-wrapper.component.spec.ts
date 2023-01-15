@@ -21,4 +21,9 @@ describe('ArcDataChartWrapperComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display nothing if empty', () => {
+    expect(fixture.nativeElement.querySelector('app-arc-data-scatter-chart')).toBeFalsy();
+    expect(fixture.nativeElement.querySelector('app-arc-data-line-chart')).toBeFalsy();
+  });
 });
